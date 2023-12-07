@@ -1,14 +1,19 @@
 .bg-container {
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 150vh;
+  width: 100vw;
 }
 
 .heading {
-  color: #333;
+  color: #000;
   text-align: center;
+  font-family: "Roboto";
+  font-weight: bold;
+}
+
+.heading-1 {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
 }
 
 .dropdown-cont {
@@ -28,41 +33,121 @@ table {
   margin-top: 20px;
 }
 
-table th,
-table td {
+thead {
+  color: #333;
+}
+
+th,
+td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
 }
 
-table th {
+tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-table td img {
-  max-width: 100px;
-  max-height: 100px;
+tbody tr:hover {
+  background-color: #e0e0e0;
 }
 
 .pagination {
   margin-top: 10px;
   padding: 8px;
-  margin: 0 5px;
+  margin: 25px;
+  cursor: pointer;
+  background-color: #5a8dee;
+  border-radius: 5px;
+  color: #ffffff;
+  border-width: 0px;
+  width: 10vh;
+}
+
+.statistics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+  width: 30vw;
+}
+
+.select-element {
+  font-family: "Roboto";
+  font-family: bold;
+  width: 20vh;
   cursor: pointer;
 }
 
-.vaccination-by-coverage-container {
+.chart-container {
   display: flex;
-  flex-direction: column;
-  background-color: #1c1c2b;
-  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.bottom-container {
+  margin-top: 40px;
+  background-color: #5a8dee;
   padding: 20px;
 }
 
-.vaccination-by-coverage-heading {
-  color: #94a3b8;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.5;
+.input-value {
+  width: 35vh;
+  outline: none;
+}
+
+.image {
+  height: 90px;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  background-color: #ffffff;
+  padding: 8.8px;
+  cursor: pointer;
+}
+
+.select-element-2 {
+  width: 30vh;
+  outline: none;
+  cursor: pointer;
+}
+
+.no-item {
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  font-weight: bold;
+  padding: 40px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  .bg-container {
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .bg-container {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+  }
+
+  .statistics-container,
+  .bottom-container {
+    width: 100%;
+  }
 }

@@ -1,15 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, Legend } from "recharts";
+import "./index.css";
 
 const CustomBarChart = (props) => {
-  const { chartData } = props;
+  const { bChartData } = props;
 
   return (
     <div>
-      <h1 className="bar-chart-heading">Transaction bar chart</h1>
       <BarChart
-        width={900}
-        height={400}
-        data={chartData}
+        width={500}
+        height={300}
+        data={bChartData}
         margin={{
           top: 5,
         }}
@@ -44,7 +44,7 @@ const CustomBarChart = (props) => {
           name="counts"
           dataKey="count"
           fill="#5a8dee"
-          radius={[10, 10, 0, 0]}
+          radius={[5, 5, 0, 0]}
           barSize="20%"
         />
       </BarChart>

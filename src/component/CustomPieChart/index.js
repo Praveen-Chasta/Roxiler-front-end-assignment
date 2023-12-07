@@ -1,26 +1,31 @@
-import { Legend, PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Legend, Cell } from "recharts";
+import "./index.css";
 
 const CustomPieChart = (props) => {
-  const { chartData } = props;
+  const { pChartData } = props;
+
+  const transformedData = pChartData.map((entry, index) => ({
+    name: Object.keys(entry)[0],
+    value: Object.values(entry)[0],
+    id: index,
+  }));
 
   return (
-    <div className="vaccination-by-gender-container">
-      <h1 className="vaccination-by-gender-heading">Transaction Pie chart</h1>
-
-      <PieChart width={1000} height={300}>
+    <div>
+      <PieChart width={550} height={300}>
         <Pie
           cx="50%"
-          cy="60%"
-          data={chartData}
-          startAngle={180}
-          endAngle={0}
+          cy="40%"
+          data={transformedData}
+          startAngle={0}
+          endAngle={360}
           innerRadius="30%"
           outerRadius="60%"
-          dataKey="count"
+          dataKey="value"
         >
-          <Cell name="electronic" fill="#5a8dee" />
-          <Cell name="jewellery" fill="#f54394" />
-          <Cell name="men's cloathing" fill="#2cc6c6" />
+          {transformedData.map((entry, index) => (
+            <Cell key={`cell-${entry.id}`} fill={getPieChartColor(index)} />
+          ))}
         </Pie>
         <Legend
           iconType="circle"
@@ -32,6 +37,19 @@ const CustomPieChart = (props) => {
       </PieChart>
     </div>
   );
+};
+
+const getPieChartColor = (index) => {
+  const colors = [
+    "#5a8dee",
+    "#f54394",
+    "#2cc6c6",
+    "#ffbb78",
+    "#98df8a",
+    "#d62728",
+    "#c49c94",
+  ];
+  return colors[index % colors.length];
 };
 
 export default CustomPieChart;
